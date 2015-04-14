@@ -10,6 +10,15 @@ CREATE TABLE account(
     PRIMARY KEY(a_id)
 );
 
+-- User table: used for storing the information on specific users
+CREATE TABLE users(
+    username varchar(20) REFERENCES account(username),
+    first_name varchar(20),
+    last_name varchar(20),
+    age int,
+    PRIMARY KEY(username)
+);
+
 -- hashed table: Responsible for encrypted pw, matches a_id field and checks encryption.
 DROP TABLE IF EXISTS hashed;
 CREATE TABLE hashed(
